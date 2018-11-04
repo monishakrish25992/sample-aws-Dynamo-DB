@@ -22,6 +22,10 @@ Return Values
 Examples
 Syntax
 
+
+Reference link:
+  https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html
+
 To declare this entity in your AWS CloudFormation template, use the following syntax:
 
 JSON
