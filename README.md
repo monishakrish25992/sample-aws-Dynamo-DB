@@ -14,13 +14,6 @@ Updates to AWS::DynamoDB::Table resources that are associated with AWS::Applicat
     dynamodb:index:WriteCapacityUnits
 As a workaround, please deregister scalable targets before performing updates to AWS::DynamoDB::Table resources.
 
-Topics
-
-Syntax
-Properties
-Return Values
-Examples
-
 Syntax
 
 To declare this entity in your AWS CloudFormation template, use the following syntax:
