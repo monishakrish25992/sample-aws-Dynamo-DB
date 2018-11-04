@@ -1,0 +1,66 @@
+{
+   "AWSTemplateFormatVersion":"2010-09-09",
+   "Description":"AWS CloudFormation sample template that contains a single Lambda function to dynamodb behind an API Gateway",
+   "Parameters":{
+      "Tablename":{
+         "Description":"Name of the API to create",
+         "Type":"String"
+      },
+       
+      
+      "DynamoReadCapacityUnits":{
+         "Description":"Provisioned read throughput",
+         "Type":"Number",
+         "Default":"1",
+         "MinValue":"1",
+         "MaxValue":"10000",
+         "ConstraintDescription":"must be between 1 and 10000"
+      },
+      "DynamoWriteCapacityUnits":{
+         "Description":"Provisioned write throughput",
+         "Type":"Number",
+         "Default":"1",
+         "MinValue":"1",
+         "MaxValue":"10000",
+         "ConstraintDescription":"must be between 1 and 10000"
+      }
+   },
+   "Resources":{
+      "APIDynamoDBTable":{
+         "Type":"AWS::DynamoDB::Table",
+         "Properties":{
+            "TableName":{
+               "Ref":"Tablename"
+            },
+            "AttributeDefinitions":[
+               {
+                  "AttributeName":"Name",
+                  "AttributeType":"S"
+               },
+               {
+                  "AttributeName":"Subject",
+                  "AttributeType":"S"
+               }
+            ],
+            "KeySchema":[
+               {
+                  "AttributeName":"Name",
+                  "KeyType":"HASH"
+               },
+               {
+                  "AttributeName":"Subject",
+                  "KeyType":"RANGE"
+               }
+            ],
+            "ProvisionedThroughput":{
+               "ReadCapacityUnits":{
+                  "Ref":"DynamoReadCapacityUnits"
+               },
+               "WriteCapacityUnits":{
+                  "Ref":"DynamoWriteCapacityUnits"
+               }
+            }
+         }
+      }
+   }
+}
