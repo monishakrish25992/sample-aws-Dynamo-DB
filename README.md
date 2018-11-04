@@ -20,7 +20,28 @@ Syntax
 Properties
 Return Values
 Examples
+
 Syntax
+
+To declare this entity in your AWS CloudFormation template, use the following syntax:
+JSON
+
+                {
+                    "Type" : "AWS::DynamoDB::Table",
+                "Properties" : {
+                "AttributeDefinitions" : [ AttributeDefinition, ... ],
+                "GlobalSecondaryIndexes" : [ GlobalSecondaryIndexes, ... ],
+    "KeySchema" : [ KeySchema, ... ],
+    "LocalSecondaryIndexes" : [ LocalSecondaryIndexes, ... ],
+    "PointInTimeRecoverySpecification" : PointInTimeRecoverySpecification,
+    "ProvisionedThroughput" : ProvisionedThroughput,
+    "SSESpecification" : SSESpecification,
+    "StreamSpecification" : StreamSpecification,
+    "TableName" : String,
+    "Tags" : [ Resource Tag, ... ],
+    "TimeToLiveSpecification" : TimeToLiveSpecification
+  }
+}
 
 
 Reference link:
